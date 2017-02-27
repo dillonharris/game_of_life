@@ -8,7 +8,7 @@ class GameOfLifeWindow < Gosu::Window
 		@width = width
 		super height, width, false
 		self.caption = "Our game of life"
-		
+
 		# Color
 		@background_color = Gosu::Color.new(0xffdedede)
 		@alive_color = Gosu::Color.new(0xff121212)
@@ -24,7 +24,6 @@ class GameOfLifeWindow < Gosu::Window
 		@world = World.new(@cols, @rows)
 		@game = Game.new(@world)
 		@game.world.randomly_populate
-
 	end
 
 	def update
@@ -45,7 +44,7 @@ class GameOfLifeWindow < Gosu::Window
 									cell.x * @col_width + (@col_width - 1), cell.y * @row_height, @alive_color,
 									cell.x * @col_width + (@col_width - 1), cell.y * @row_height + (@row_height - 1), @alive_color,
 									cell.x * @col_width, cell.y * @row_height + (@row_height - 1), @alive_color)
-			else				
+			else
 				draw_quad(cell.x * @col_width, cell.y * @row_height, @dead_color,
 									cell.x * @col_width + (@col_width - 1), cell.y * @row_height, @dead_color,
 									cell.x * @col_width + (@col_width - 1), cell.y * @row_height + (@row_height - 1), @dead_color,
