@@ -21,8 +21,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gosu (= 0.10.4)
+  gosu
   rspec
 
 BUNDLED WITH
-   1.10.6
+   1.14.4
