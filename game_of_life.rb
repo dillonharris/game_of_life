@@ -2,9 +2,9 @@ class Game
 	attr_accessor :world, :seeds
 
 	def initialize(world=World.new, seeds=[])
-		@world = world 
+		@world = world
 		@seeds = seeds
-		
+
 		seeds.each do |seed|
 			world.cell_grid[seed[0]][seed[1]].alive = true
 		end
@@ -47,17 +47,13 @@ class Game
 end
 
 class World
-	
+
 	attr_accessor :rows, :cols, :cell_grid, :cells
 
 	def initialize(rows=3, cols=3)
 		@rows = rows
 		@cols = cols
 		@cells = []
-
-		# [[Cell.new, Cell.new, Cell.new],
-		#  [Cell.new, Cell.new, Cell.new],
-		#  [Cell.new, Cell.new, Cell.new]]
 
 		@cell_grid =  Array.new(rows) do |row|
 					   		 		Array.new(cols) do |col|
@@ -84,7 +80,7 @@ class World
 		end
 
 		# Neighbour to the South-West
-		if cell.y < (rows - 1) and cell.x > 0 
+		if cell.y < (rows - 1) and cell.x > 0
 			candidate = self.cell_grid[cell.y + 1][cell.x - 1]
 			live_neighbours << candidate if candidate.alive?
 		end
@@ -134,12 +130,12 @@ class World
 end
 
 
-class Cell 
+class Cell
 	attr_accessor :alive, :x, :y
-	
+
 	def initialize(x=0, y=0)
 		@alive = false
-		@x = x 
+		@x = x
 		@y = y
 	end
 
@@ -156,4 +152,4 @@ class Cell
 	def revive!
 		@alive = true
 	end
-end 
+end
