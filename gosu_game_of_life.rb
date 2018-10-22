@@ -4,10 +4,8 @@ require_relative 'game_of_life.rb'
 class GameOfLifeWindow < Gosu::Window
 
 	def initialize(height=800, width=600)
-		@height = height
-		@width = width
 		super height, width, false
-		self.caption = "Our game of life"
+		self.caption = "Game Of Life"
 
 		# Color
 		@background_color = Gosu::Color.new(0xffdedede)
@@ -15,14 +13,14 @@ class GameOfLifeWindow < Gosu::Window
 		@dead_color = Gosu::Color.new(0xffededed)
 
 		# Game itself
-		@cols = width/10
-		@rows = height/10
+		cols = width/10
+		rows = height/10
 
-		@col_width = width/@cols
-		@row_height = height/@rows
+		@col_width = width/cols
+		@row_height = height/rows
 
-		@world = World.new(@cols, @rows)
-		@game = Game.new(@world)
+		world = World.new(cols, rows)
+		@game = Game.new(world)
 		@game.world.randomly_populate
 	end
 
